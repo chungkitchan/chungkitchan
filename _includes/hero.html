@@ -1,7 +1,47 @@
+{% assign bio = site.sections | where: "slug", "biography" | first %}
+
 <section id="hero" class="hero">
-  <div class="hero-glow"></div>
-  <span class="hero-tag">Composer &middot; Clarinetist &middot; Educator</span>
-  <h1 class="hero-title">{{ site.title }}</h1>
-  <p class="hero-subtitle">Music Composition for Film, TV &amp; Games &mdash; Berklee College of Music</p>
-  <a class="hero-cta" href="#portfolio">Explore My Work</a>
+  <div class="container">
+    <div class="hero__inner">
+
+      <!-- Left: atmospheric image -->
+      <div class="hero__left">
+        <div class="hero__image-wrap">
+          {% if bio.hero_image %}
+            <img src="{{ bio.hero_image | relative_url }}" alt="Chloe Chan's space" class="hero__image" />
+          {% else %}
+            <div class="hero__image-placeholder">
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="300" fill="var(--surface2)"/>
+                <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="var(--muted)" font-size="48">🎼</text>
+                <text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" fill="var(--muted)" font-size="14" font-family="sans-serif">My creative space</text>
+              </svg>
+            </div>
+          {% endif %}
+          {% if bio.hero_caption %}
+            <p class="hero__caption">{{ bio.hero_caption }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right: avatar + intro -->
+      <div class="hero__right">
+        {% if bio.avatar %}
+          <div class="hero__avatar-wrap">
+            <img src="{{ bio.avatar | relative_url }}" alt="{{ site.title }}" class="hero__avatar" />
+          </div>
+        {% endif %}
+
+        <div class="hero__tag">{{ bio.role | default: "Composer · Clarinetist · Educator" }}</div>
+        <h1 class="hero__title">Hi! I'm {{ site.author.name | split: " " | first }} 👋</h1>
+        <p class="hero__subtitle">{{ site.description }}</p>
+        <div class="hero__desc">{{ bio.intro | markdownify }}</div>
+        <div class="hero__actions">
+          <a href="#portfolio" class="btn btn--primary">Explore My Work</a>
+          <a href="#contact"   class="btn btn--ghost">Get in Touch</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>

@@ -1,25 +1,23 @@
 {% assign ct = site.sections | where: "slug", "contact" | first %}
 
-<section id="contact" class="section section--surface">
-  <div class="section-inner reveal" style="text-align:center;">
-    <p class="section-label">Get in touch</p>
-    <h2 class="section-title">{{ ct.tagline }}</h2>
-    <div class="divider" style="margin-left:auto;margin-right:auto;"></div>
-    <p class="contact-text">{{ ct.description }}</p>
-    <div class="contact-links">
-      {% for link in ct.links %}
-        {% if link.external %}
-          <a class="contact-pill" href="{{ link.href }}" target="_blank" rel="noopener noreferrer">
+<section id="contact" class="section section--alt">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <div class="contact-text-block">
+        <p class="section-label">Get in touch</p>
+        <h2 class="section__title">{{ ct.tagline }}</h2>
+        <p class="contact-desc">{{ ct.description }}</p>
+      </div>
+      <div class="contact-links">
+        {% for link in ct.links %}
+          <a class="btn {% if forloop.first %}btn--primary{% else %}btn--ghost{% endif %}"
+             href="{{ link.href }}"
+             {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
             {% include icon.html name=link.icon %}
             {{ link.label }}
           </a>
-        {% else %}
-          <a class="contact-pill" href="{{ link.href }}">
-            {% include icon.html name=link.icon %}
-            {{ link.label }}
-          </a>
-        {% endif %}
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>

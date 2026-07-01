@@ -1,15 +1,28 @@
 <section id="portfolio" class="section">
-  <div class="section-inner">
-    <p class="section-label">My Work</p>
-    <h2 class="section-title reveal">Portfolio</h2>
-    <div class="divider"></div>
+  <div class="container">
 
-    <div class="filter-row" id="filter-row">
-      <button class="filter-btn active" data-cat="All">All</button>
+    <div class="section__head reveal">
+      <div>
+        <p class="section-label">My Work</p>
+        <h2 class="section__title">Portfolio</h2>
+      </div>
+      <div class="filter-row" id="filter-row">
+        <button class="filter-btn active" data-cat="All">All</button>
+      </div>
     </div>
 
-    <div class="portfolio-grid" id="portfolio-grid">
-      <p class="portfolio-loading">Loading portfolio&hellip;</p>
+    <div class="content-with-sidebar">
+
+      <!-- Main portfolio grid -->
+      <div class="content-main">
+        <div class="portfolio-grid" id="portfolio-grid">
+          <p class="portfolio-loading">Loading portfolio&hellip;</p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      {% include sidebar.html %}
+
     </div>
   </div>
 </section>

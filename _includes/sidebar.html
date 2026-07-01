@@ -1,0 +1,55 @@
+{% assign bio = site.sections | where: "slug", "biography" | first %}
+{% assign ct  = site.sections | where: "slug", "contact"   | first %}
+
+<aside class="sidebar">
+
+  <!-- About widget -->
+  <div class="widget widget--about">
+    {% if bio.avatar %}
+      <img src="{{ bio.avatar | relative_url }}" alt="{{ site.author.name }}" class="widget__avatar" />
+    {% endif %}
+    <h3 class="widget__title">{{ site.author.name }}</h3>
+    <p class="widget__sub">{{ bio.role | default: "Composer · Clarinetist · Educator" }}</p>
+    <div class="widget__bio">{{ bio.intro | markdownify }}</div>
+  </div>
+
+  <!-- Influences widget -->
+  <div class="widget widget--tags">
+    <h3 class="widget__heading">Influences</h3>
+    <div class="tag-row">
+      {% for inf in bio.influences %}
+        <span class="tag tag-{{ forloop.index0 | modulo: 6 }}">{{ inf }}</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Highlights widget -->
+  <div class="widget widget--highlights">
+    <h3 class="widget__heading">Highlights</h3>
+    {% for h in bio.highlights %}
+      <div class="highlight-card">
+        <div class="hi-icon hi-icon--{{ h.color }}">{{ h.icon }}</div>
+        <div class="hi-body">
+          <strong>{{ h.heading }}</strong>
+          <span>{{ h.detail }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Social / contact widget -->
+  <div class="widget widget--social">
+    <h3 class="widget__heading">Get in Touch</h3>
+    <ul class="social-list">
+      {% for link in ct.links %}
+        <li>
+          <a href="{{ link.href }}" {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %} class="social-link">
+            {% include icon.html name=link.icon %}
+            {{ link.label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</aside>

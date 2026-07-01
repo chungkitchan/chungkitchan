@@ -1,5 +1,12 @@
 ---
 title: Biography
+role: "Composer · Clarinetist · Educator"
+avatar: ""
+hero_image: ""
+hero_caption: "Where music meets imagination"
+intro: >
+  Berklee-trained composer specialising in Film, TV & Games.
+  Clarinetist with NOVOwinds, piano teacher, and music arranger.
 influences:
   - Orchestra
   - Rock
