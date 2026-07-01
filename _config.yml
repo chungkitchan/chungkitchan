@@ -3,23 +3,10 @@ description: Music Composition for Film, TV & Games — Berklee College of Music
 url: ""
 baseurl: ""
 
-# ── Theme ──────────────────────────────────────────────────────
-# GitHub Pages supported theme
-theme: minima
-
-# Minima skin — change here to restyle the whole site.
-# Options: classic | dark | solarized | solarized-dark | auto
-minima:
-  skin: dark
-
-# Author details used in the theme
+# Author details
 author:
   name: Chloe Chan
   email: hello@chloechan.music
-
-# Social links rendered by minima
-header_pages:
-  - index.md
 
 # ── Collections ────────────────────────────────────────────────
 # Each file in _sections/ is an editable content section.
@@ -27,10 +14,6 @@ header_pages:
 collections:
   sections:
     output: false   # sections are included, not standalone pages
-
-# ── Plugins (GitHub Pages safe-list) ──────────────────────────
-plugins:
-  - jekyll-feed
 
 # ── Build ──────────────────────────────────────────────────────
 markdown: kramdown
