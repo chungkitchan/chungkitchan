@@ -6,7 +6,7 @@ baseurl: "/chungkitchan"
 # ── Color theme ────────────────────────────────────────────────
 # Change color_theme to any key defined under "themes" below.
 # Options: dark | ocean | sakura | forest | light
-color_theme: forest
+color_theme: dark
 
 themes:
   dark:
