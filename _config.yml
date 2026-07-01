@@ -3,6 +3,23 @@ description: Music Composition for Film, TV & Games — Berklee College of Music
 url: "https://chungkitchan.github.io"
 baseurl: "/chungkitchan"
 
+# ── Theme ──────────────────────────────────────────────────────
+# Switch theme by changing remote_theme to any of the options below.
+# Supported GitHub Pages remote themes:
+#
+#   pages-themes/midnight@v0.2.0     — dark navy, strong headings
+#   pages-themes/cayman@v0.2.0       — teal/green hero header
+#   pages-themes/slate@v0.2.0        — dark slate sidebar style
+#   pages-themes/minimal@v1.2.0      — clean white minimal
+#   pages-themes/hacker@v0.2.0       — dark green-on-black terminal
+#   pages-themes/dinky@v0.2.0        — light pink/coral
+#   pages-themes/leap-day@v0.2.0     — light blue two-column
+#
+remote_theme: pages-themes/midnight@v0.2.0
+
+plugins:
+  - jekyll-remote-theme
+
 # Author details
 author:
   name: Chloe Chan

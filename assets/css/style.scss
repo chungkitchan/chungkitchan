@@ -2,7 +2,13 @@
 # Front matter required for Jekyll to process this SCSS file
 ---
 
-/* ── Custom design tokens ────────────────────────────────────── */
+/* ── Import active remote theme base styles ──────────────────── */
+/* remote_theme format is e.g. "pages-themes/midnight@v0.2.0"    */
+/* The theme exposes a Sass partial named after itself.           */
+{% assign theme_name = site.remote_theme | split: "/" | last | split: "@" | first %}
+@import "{{ theme_name }}";
+
+/* ── Custom design tokens (override theme) ───────────────────── */
 :root {
   --bg:       #0d0d14;
   --surface:  #16162a;
