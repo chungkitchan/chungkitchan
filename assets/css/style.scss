@@ -1,11 +1,14 @@
 ---
 # Front matter required for Jekyll to process this SCSS file.
-# Active palette is read from _config.yml: color_theme + themes[color_theme].
+# Color tokens:  _config.yml → color_theme + themes[color_theme]
+# Layout tokens: _config.yml → layout
 ---
 {% assign t = site.themes[site.color_theme] %}
+{% assign l = site.layout %}
 
 /* ── Design tokens — injected from _config.yml ───────────────── */
 :root {
+  /* Color */
   --bg:       {{ t.bg }};
   --surface:  {{ t.surface }};
   --surface2: {{ t.surface2 }};
@@ -20,8 +23,10 @@
   --font:     {{ t.font }};
   --nav-bg:   {{ t.nav_bg }};
   --glow:     {{ t.glow }};
-  --radius:   12px;
-  --max-w:    960px;
+  /* Layout */
+  --radius:   {{ l.card_radius | default: "12px" }};
+  --max-w:    {{ l.max_width   | default: "960px" }};
+  --sec-gap:  {{ l.section_gap | default: "5rem" }};
 }
 
 /* ── Base ────────────────────────────────────────────────────── */
@@ -89,10 +94,10 @@ a:hover { text-decoration: underline; }
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: {% if l.hero_style == "left" %}flex-start{% else %}center{% endif %};
   justify-content: center;
-  text-align: center;
-  padding: 6rem 2rem 4rem;
+  text-align: {% if l.hero_style == "left" %}left{% else %}center{% endif %};
+  padding: 6rem {% if l.hero_style == "left" %}4rem{% else %}2rem{% endif %} 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -156,7 +161,7 @@ a:hover { text-decoration: underline; }
 .section-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: var(--sec-gap) 2rem;
 }
 
 .section-label {
@@ -184,7 +189,7 @@ a:hover { text-decoration: underline; }
 /* ── Bio ─────────────────────────────────────────────────────── */
 .bio-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: {% if l.bio_columns == "1col" %}1fr{% elsif l.bio_columns == "sidebar" %}1fr 2fr{% else %}1fr 1fr{% endif %};
   gap: 2.4rem;
 }
 @media (max-width: 640px) { .bio-grid { grid-template-columns: 1fr; } }
@@ -253,9 +258,10 @@ a:hover { text-decoration: underline; }
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: {% if l.portfolio_columns == "1col" %}1fr{% elsif l.portfolio_columns == "2col" %}repeat(2, 1fr){% elsif l.portfolio_columns == "3col" %}repeat(3, 1fr){% else %}repeat(auto-fill, minmax(280px, 1fr)){% endif %};
   gap: 1.4rem;
 }
+@media (max-width: 640px) { .portfolio-grid { grid-template-columns: 1fr; } }
 
 .portfolio-loading { text-align: center; padding: 3rem; color: var(--muted); }
 

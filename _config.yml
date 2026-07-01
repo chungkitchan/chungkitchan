@@ -89,6 +89,36 @@ themes:
     nav_bg:   "rgba(248,247,255,0.92)"
     glow:     "rgba(123,47,255,0.10)"
 
+# ── Layout ─────────────────────────────────────────────────────
+# Controls column structure and spacing across the page.
+#
+# bio_columns:
+#   2col     — text left, highlight cards right (default)
+#   1col     — single centred column, stacked
+#   sidebar  — narrow text left (1fr), wide highlights right (2fr)
+#
+# portfolio_columns:
+#   auto     — responsive auto-fill (~3 cols on desktop, scales down)
+#   2col     — always 2 columns
+#   3col     — always 3 columns
+#   1col     — single column list
+#
+# hero_style:
+#   centered — full-width centred text (default)
+#   left     — left-aligned text, padded
+#
+# max_width:   max page content width (any CSS value)
+# card_radius: border-radius for cards and buttons (any CSS value)
+# section_gap: vertical padding inside each section (any CSS value)
+
+layout:
+  bio_columns:       "2col"
+  portfolio_columns: "auto"
+  hero_style:        "centered"
+  max_width:         "960px"
+  card_radius:       "12px"
+  section_gap:       "5rem"
+
 # Author details
 author:
   name: Chloe Chan
