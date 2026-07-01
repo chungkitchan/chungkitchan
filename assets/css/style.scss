@@ -1,37 +1,36 @@
 ---
-# Front matter required for Jekyll to process this SCSS file
+# Front matter required for Jekyll to process this SCSS file.
+# Active palette is read from _config.yml: color_theme + themes[color_theme].
 ---
+{% assign t = site.themes[site.color_theme] %}
 
-/* ── Import active remote theme base styles ──────────────────── */
-/* remote_theme format is e.g. "pages-themes/midnight@v0.2.0"    */
-/* The theme exposes a Sass partial named after itself.           */
-{% assign theme_name = site.remote_theme | split: "/" | last | split: "@" | first %}
-@import "{{ theme_name }}";
-
-/* ── Custom design tokens (override theme) ───────────────────── */
+/* ── Design tokens — injected from _config.yml ───────────────── */
 :root {
-  --bg:       #0d0d14;
-  --surface:  #16162a;
-  --surface2: #1e1e38;
-  --border:   #2e2e55;
-  --text:     #eae8f5;
-  --muted:    #9593b8;
-  --a1:       #c77dff;  /* purple  */
-  --a2:       #7b2fff;  /* violet  */
-  --a3:       #ff6b9d;  /* pink    */
-  --a4:       #48cae4;  /* cyan    */
-  --a5:       #f9c74f;  /* gold    */
+  --bg:       {{ t.bg }};
+  --surface:  {{ t.surface }};
+  --surface2: {{ t.surface2 }};
+  --border:   {{ t.border }};
+  --text:     {{ t.text }};
+  --muted:    {{ t.muted }};
+  --a1:       {{ t.a1 }};
+  --a2:       {{ t.a2 }};
+  --a3:       {{ t.a3 }};
+  --a4:       {{ t.a4 }};
+  --a5:       {{ t.a5 }};
+  --font:     {{ t.font }};
+  --nav-bg:   {{ t.nav_bg }};
+  --glow:     {{ t.glow }};
   --radius:   12px;
   --max-w:    960px;
 }
 
-/* ── Base overrides ──────────────────────────────────────────── */
+/* ── Base ────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html  { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: var(--font);
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
@@ -46,7 +45,7 @@ a:hover { text-decoration: underline; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(13,13,20,0.88);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -102,7 +101,7 @@ a:hover { text-decoration: underline; }
   position: absolute;
   width: 600px; height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(123,47,255,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
   top: 50%; left: 50%;
   transform: translate(-50%, -60%);
   pointer-events: none;

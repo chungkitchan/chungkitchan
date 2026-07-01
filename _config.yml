@@ -3,22 +3,91 @@ description: Music Composition for Film, TV & Games — Berklee College of Music
 url: "https://chungkitchan.github.io"
 baseurl: "/chungkitchan"
 
-# ── Theme ──────────────────────────────────────────────────────
-# Switch theme by changing remote_theme to any of the options below.
-# Supported GitHub Pages remote themes:
-#
-#   pages-themes/midnight@v0.2.0     — dark navy, strong headings
-#   pages-themes/cayman@v0.2.0       — teal/green hero header
-#   pages-themes/slate@v0.2.0        — dark slate sidebar style
-#   pages-themes/minimal@v1.2.0      — clean white minimal
-#   pages-themes/hacker@v0.2.0       — dark green-on-black terminal
-#   pages-themes/dinky@v0.2.0        — light pink/coral
-#   pages-themes/leap-day@v0.2.0     — light blue two-column
-#
-remote_theme: pages-themes/midnight@v0.2.0
+# ── Color theme ────────────────────────────────────────────────
+# Change color_theme to any key defined under "themes" below.
+# Options: dark | ocean | sakura | forest | light
+color_theme: dark
 
-plugins:
-  - jekyll-remote-theme
+themes:
+  dark:
+    bg:       "#0d0d14"
+    surface:  "#16162a"
+    surface2: "#1e1e38"
+    border:   "#2e2e55"
+    text:     "#eae8f5"
+    muted:    "#9593b8"
+    a1:       "#c77dff"
+    a2:       "#7b2fff"
+    a3:       "#ff6b9d"
+    a4:       "#48cae4"
+    a5:       "#f9c74f"
+    font:     "'Segoe UI', system-ui, -apple-system, sans-serif"
+    nav_bg:   "rgba(13,13,20,0.88)"
+    glow:     "rgba(123,47,255,0.18)"
+
+  ocean:
+    bg:       "#050d18"
+    surface:  "#0a1628"
+    surface2: "#0e1f38"
+    border:   "#1a3050"
+    text:     "#e0f0ff"
+    muted:    "#6a90b8"
+    a1:       "#38bdf8"
+    a2:       "#0ea5e9"
+    a3:       "#34d399"
+    a4:       "#a78bfa"
+    a5:       "#fbbf24"
+    font:     "Georgia, 'Times New Roman', serif"
+    nav_bg:   "rgba(5,13,24,0.90)"
+    glow:     "rgba(14,165,233,0.18)"
+
+  sakura:
+    bg:       "#1a0a0f"
+    surface:  "#2a1018"
+    surface2: "#381520"
+    border:   "#55202e"
+    text:     "#f5e8ec"
+    muted:    "#b89398"
+    a1:       "#f472b6"
+    a2:       "#ec4899"
+    a3:       "#fb7185"
+    a4:       "#fda4af"
+    a5:       "#fcd34d"
+    font:     "'Palatino Linotype', Palatino, serif"
+    nav_bg:   "rgba(26,10,15,0.90)"
+    glow:     "rgba(244,114,182,0.18)"
+
+  forest:
+    bg:       "#080f0a"
+    surface:  "#0f1e12"
+    surface2: "#162a1a"
+    border:   "#1e4025"
+    text:     "#d8f0dc"
+    muted:    "#7aaa80"
+    a1:       "#4ade80"
+    a2:       "#16a34a"
+    a3:       "#86efac"
+    a4:       "#34d399"
+    a5:       "#fde047"
+    font:     "Verdana, Geneva, Tahoma, sans-serif"
+    nav_bg:   "rgba(8,15,10,0.90)"
+    glow:     "rgba(74,222,128,0.15)"
+
+  light:
+    bg:       "#f8f7ff"
+    surface:  "#ffffff"
+    surface2: "#f0eef9"
+    border:   "#d8d4ee"
+    text:     "#1a1830"
+    muted:    "#6b6890"
+    a1:       "#7b2fff"
+    a2:       "#5b0fd9"
+    a3:       "#e0006a"
+    a4:       "#0088bb"
+    a5:       "#d97706"
+    font:     "'Segoe UI', system-ui, -apple-system, sans-serif"
+    nav_bg:   "rgba(248,247,255,0.92)"
+    glow:     "rgba(123,47,255,0.10)"
 
 # Author details
 author:
