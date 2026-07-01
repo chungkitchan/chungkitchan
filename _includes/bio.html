@@ -1,0 +1,36 @@
+{% assign bio = site.sections | where: "slug", "biography" | first %}
+
+<section id="about" class="section section--surface">
+  <div class="section-inner reveal">
+    <p class="section-label">About me</p>
+    <h2 class="section-title">{{ bio.title }}</h2>
+    <div class="divider"></div>
+
+    <div class="bio-grid">
+      <div class="bio-text">
+        {{ bio.content }}
+
+        <div class="influences">
+          <h3>Musical Influences</h3>
+          <div class="tag-row">
+            {% for inf in bio.influences %}
+              <span class="tag tag-{{ forloop.index0 | modulo: 6 }}">{{ inf }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="bio-highlights">
+        {% for h in bio.highlights %}
+          <div class="highlight-card reveal">
+            <div class="hi-icon hi-icon--{{ h.color }}">{{ h.icon }}</div>
+            <div class="hi-body">
+              <strong>{{ h.heading }}</strong>
+              <span>{{ h.detail }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
